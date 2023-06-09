@@ -1,13 +1,12 @@
-import { redirect } from "next/navigation";
+import { SignInForm } from "@/components/SignInForm";
 
 import { getServerSession } from "next-auth";
 import { getCsrfToken } from "next-auth/react";
 
 import { authOptions } from "@/lib/authOptions";
+import { redirect } from "next/navigation";
 
-import { SignInForm } from "@/components/SignInForm";
-
-export default async function HomePage() {
+export default async function SignInPage() {
   const session = await getServerSession(authOptions);
 
   const csrfToken = await getCsrfToken();
