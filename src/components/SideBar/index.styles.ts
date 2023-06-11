@@ -11,6 +11,8 @@ export const Wrapper = styled.div`
   position: fixed;
   top: 0px;
   left: 0px;
+
+  background-color: #ffffff;
 `;
 
 export const Heading = styled.div`
