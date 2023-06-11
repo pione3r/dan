@@ -1,0 +1,23 @@
+.ql-toolbar {
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: 1px solid #00000021 !important;
+
+  display: flex;
+  justify-content: center;
+}
+
+.ql-container {
+  border: none !important;
+}
+
+.editor {
+  height: 750px !important;
+  overflow: scroll;
+}
+
+.ql-editor {
+  overflow: scroll;
+  height: 900px;
+}
