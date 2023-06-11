@@ -12,7 +12,7 @@
   border: none !important;
 }
 
-.editor {
+.editor > .ql-container {
   height: 750px !important;
   overflow: scroll;
 }
