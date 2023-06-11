@@ -9,24 +9,12 @@ export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
   if (jwt) {
-    if (
-      pathname === "/" ||
-      pathname === "/accounts/signin" ||
-      pathname === "/accounts/signup"
-    ) {
-      return NextResponse.redirect(
-        new URL("/explore", "http://localhost:3000")
-      );
+    if (pathname === "/accounts/signin" || pathname === "/accounts/signup") {
+      return NextResponse.redirect(new URL("/", "http://localhost:3000"));
     }
   } else {
     if (pathname === "/") {
       return NextResponse.rewrite(
-        new URL("/accounts/signin", "http://localhost:3000")
-      );
-    }
-
-    if (pathname === "/explore") {
-      return NextResponse.redirect(
         new URL("/accounts/signin", "http://localhost:3000")
       );
     }
