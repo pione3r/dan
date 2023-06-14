@@ -12,6 +12,10 @@
   border: none !important;
 
   height: calc(100dvh - 205px);
+
+  @media (max-width: 720px) {
+    height: calc(100dvh - 255px);
+  }
 }
 
 .editor > .ql-container {

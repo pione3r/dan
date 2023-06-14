@@ -1,7 +1,6 @@
 "use client";
 
-import dynamic from "next/dynamic";
-import { Dispatch, SetStateAction, useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 
 import { storage } from "@/lib/firebase";
 import {
@@ -13,31 +12,12 @@ import {
 
 import { usePreviousState } from "@/hooks/usePreviousState";
 
-import "react-quill/dist/quill.snow.css";
-import "react-quill/dist/quill.bubble.css";
-import { type ReactQuillProps } from "react-quill";
 import type ReactQuill from "react-quill";
+import type { RQ } from "../../atoms/WrappedReactQuill/index.types";
 
-import "./index.css";
+import { WrappedReactQuill } from "../../atoms/WrappedReactQuill";
 
-interface RQ extends ReactQuillProps {
-  forwardedRef?: React.Ref<ReactQuill>;
-  value?: string;
-  onChange?: Dispatch<SetStateAction<string>>;
-}
-
-const DynamicReactQuill = dynamic(
-  async () => {
-    const { default: RQ } = await import("react-quill");
-    const Quill = ({ forwardedRef, ...props }: RQ) => (
-      <RQ ref={forwardedRef} {...props} />
-    );
-    return Quill;
-  },
-  { ssr: false }
-);
-
-export function Editor({ value, onChange, ...props }: RQ) {
+export function Editor({ value, onChange }: RQ) {
   const quillRef = useRef<ReactQuill>(null);
 
   const previousHtml = usePreviousState<string>(value!);
@@ -61,35 +41,38 @@ export function Editor({ value, onChange, ...props }: RQ) {
     }
   }, [value, previousHtml]);
 
-  const imageHandler = () => {
-    const input = document.createElement("input");
+  const imageHandler = useMemo(
+    () => () => {
+      const input = document.createElement("input");
 
-    input.setAttribute("type", "file");
-    input.setAttribute("accept", "image/*");
-    input.click();
-    input.onchange = async () => {
-      const file = input && input.files && input.files[0];
+      input.setAttribute("type", "file");
+      input.setAttribute("accept", "image/*");
+      input.click();
+      input.onchange = async () => {
+        const file = input && input.files && input.files[0];
 
-      try {
-        const quillObj = quillRef.current?.getEditor();
+        try {
+          const quillObj = quillRef.current?.getEditor();
 
-        const storageRef = ref(storage, `image/${Date.now()}`);
+          const storageRef = ref(storage, `image/${Date.now()}`);
 
-        const uploadSnapshot = await uploadBytes(storageRef, file!);
+          const uploadSnapshot = await uploadBytes(storageRef, file!);
 
-        const imageUrl = await getDownloadURL(uploadSnapshot.ref);
+          const imageUrl = await getDownloadURL(uploadSnapshot.ref);
 
-        const range = quillObj?.getSelection();
+          const range = quillObj?.getSelection();
 
-        quillObj?.insertEmbed(range!.index, "image", imageUrl);
+          quillObj?.insertEmbed(range!.index, "image", imageUrl);
 
-        //   URL 삽입 후 커서를 이미지 뒷 칸으로 이동
-        quillObj?.setSelection(range?.index! + 1, 0);
-      } catch (err) {
-        throw err;
-      }
-    };
-  };
+          //   URL 삽입 후 커서를 이미지 뒷 칸으로 이동
+          quillObj?.setSelection(range?.index! + 1, 0);
+        } catch (err) {
+          throw err;
+        }
+      };
+    },
+    []
+  );
 
   const modules = useMemo(
     () => ({
@@ -118,7 +101,7 @@ export function Editor({ value, onChange, ...props }: RQ) {
         matchVisual: false,
       },
     }),
-    []
+    [imageHandler]
   );
 
   const formats = useMemo(
@@ -142,14 +125,14 @@ export function Editor({ value, onChange, ...props }: RQ) {
   );
 
   return (
-    <DynamicReactQuill
+    <WrappedReactQuill
       className="editor"
+      theme="snow"
       forwardedRef={quillRef}
       modules={modules}
       formats={formats}
       value={value}
       onChange={onChange}
-      {...props}
     />
   );
 }

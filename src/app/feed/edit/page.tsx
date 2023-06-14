@@ -1,12 +1,16 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 import { useState } from "react";
 
 import { styled } from "styled-components";
 
-import { Editor } from "@/components/Editor";
-import { EditorViewer } from "@/components/EditorViewer";
-import { useRouter } from "next/navigation";
+import { Editor } from "@/components/피드생성/blocks/Editor";
+import { Viewer } from "@/components/피드생성/blocks/Viewer";
+
+import { FeedTitleInput } from "@/components/피드생성/atoms/FeedTitleInput";
+import { SubmitButton } from "@/components/피드생성/atoms/SubmitButton";
 
 export default function PostEditPage() {
   const router = useRouter();
@@ -18,7 +22,7 @@ export default function PostEditPage() {
   return (
     <Wrapper>
       <Header>
-        <FeedTitle
+        <FeedTitleInput
           value={feedTitle}
           onChange={(e) => setFeedTitle(e.target.value)}
           placeholder="제목을 입력하세요"
@@ -26,10 +30,10 @@ export default function PostEditPage() {
       </Header>
       <Body>
         <ColumnLeft>
-          <Editor theme="snow" value={html} onChange={setHtml} />
+          <Editor value={html} onChange={setHtml} />
         </ColumnLeft>
         <ColumnRight>
-          <EditorViewer value={html} />
+          <Viewer value={html} />
         </ColumnRight>
       </Body>
       <Footer>
@@ -70,17 +74,6 @@ const Header = styled.div`
   border-bottom: 1px solid #e5e5e5;
 `;
 
-const FeedTitle = styled.input`
-  border: none;
-  outline: none;
-
-  font-size: 40px;
-
-  padding: 20px;
-
-  width: 100%;
-`;
-
 export const Body = styled.div`
   display: flex;
 `;
@@ -93,6 +86,10 @@ const ColumnRight = styled.div`
   width: 100%;
 
   background-color: #fbfbfb;
+
+  @media screen and (max-width: 720px) {
+    display: none;
+  }
 `;
 
 const Footer = styled.div`
@@ -109,24 +106,8 @@ const Footer = styled.div`
   position: fixed;
   left: 0px;
   bottom: 0px;
-`;
 
-const SubmitButton = styled.button`
-  border: none;
-
-  margin-left: auto;
-
-  padding: 10px 20px;
-
-  font-size: 20px;
-  font-weight: 500;
-  color: #ffffff;
-
-  border-radius: 10px;
-
-  background-color: #000000;
-
-  &:hover {
-    cursor: pointer;
+  @media screen and (max-width: 720px) {
+    bottom: 0px;
   }
 `;
