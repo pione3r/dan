@@ -24,5 +24,12 @@ const DynamicReactQuill = dynamic(
 );
 
 export function EditorViewer({ value }: { value: string }) {
-  return <DynamicReactQuill theme="bubble" value={value} readOnly />;
+  return (
+    <DynamicReactQuill
+      className="viewer"
+      theme="bubble"
+      value={value}
+      readOnly
+    />
+  );
 }

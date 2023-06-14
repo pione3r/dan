@@ -10,14 +10,20 @@
 
 .ql-container {
   border: none !important;
+
+  height: calc(100dvh - 205px);
 }
 
 .editor > .ql-container {
-  height: 750px !important;
-  overflow: scroll;
+  padding: 30px;
+  padding-top: 25px;
+}
+
+.viewer > .ql-container {
+  padding: 45px;
+  padding-bottom: 0px;
 }
 
 .ql-editor {
-  overflow: scroll;
-  height: 900px;
+  padding: 0px;
 }

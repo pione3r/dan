@@ -17,56 +17,57 @@ export default function PostEditPage() {
 
   return (
     <Wrapper>
-      <ColumnLeft>
+      <Header>
         <FeedTitle
           value={feedTitle}
           onChange={(e) => setFeedTitle(e.target.value)}
           placeholder="제목을 입력하세요"
         />
-        <Editor theme="snow" value={html} onChange={setHtml} />
-        <ColumnLeftFooter>
-          <SubmitButton
-            onClick={async () => {
-              const res = await fetch("/api/feed", {
-                method: "post",
-                body: JSON.stringify({
-                  title: feedTitle,
-                  body: html,
-                }),
-              });
+      </Header>
+      <Body>
+        <ColumnLeft>
+          <Editor theme="snow" value={html} onChange={setHtml} />
+        </ColumnLeft>
+        <ColumnRight>
+          <EditorViewer value={html} />
+        </ColumnRight>
+      </Body>
+      <Footer>
+        <SubmitButton
+          onClick={async () => {
+            const res = await fetch("/api/feed", {
+              method: "post",
+              body: JSON.stringify({
+                title: feedTitle,
+                body: html,
+              }),
+            });
 
-              if (res.status === 201) {
-                alert("피드 생성에 성공했습니다.");
-                router.push("/");
-              }
+            if (res.status === 201) {
+              alert("피드 생성에 성공했습니다.");
+              router.push("/");
+            }
 
-              if (res.status === 401) {
-                alert("피드 생성에 실패했습니다.");
-                return;
-              }
-            }}
-          >
-            작성완료
-          </SubmitButton>
-        </ColumnLeftFooter>
-      </ColumnLeft>
-      <ColumnRight>
-        <EditorViewer value={html} />
-      </ColumnRight>
+            if (res.status === 401) {
+              alert("피드 생성에 실패했습니다.");
+              return;
+            }
+          }}
+        >
+          작성완료
+        </SubmitButton>
+      </Footer>
     </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
   display: flex;
-
-  @media screen and (max-width: 500px) {
-    flex-direction: column;
-  }
+  flex-direction: column;
 `;
 
-const ColumnLeft = styled.div`
-  width: 100%;
+const Header = styled.div`
+  border-bottom: 1px solid #e5e5e5;
 `;
 
 const FeedTitle = styled.input`
@@ -80,12 +81,34 @@ const FeedTitle = styled.input`
   width: 100%;
 `;
 
-const ColumnLeftFooter = styled.div`
+export const Body = styled.div`
+  display: flex;
+`;
+
+const ColumnLeft = styled.div`
+  width: 100%;
+`;
+
+const ColumnRight = styled.div`
+  width: 100%;
+
+  background-color: #fbfbfb;
+`;
+
+const Footer = styled.div`
   display: flex;
 
   background-color: #fbfbfb;
 
   padding: 16px 30px;
+
+  border-top: 1px solid #e5e5e5;
+
+  width: 100%;
+
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
 `;
 
 const SubmitButton = styled.button`
@@ -106,10 +129,4 @@ const SubmitButton = styled.button`
   &:hover {
     cursor: pointer;
   }
-`;
-
-const ColumnRight = styled.div`
-  width: 100%;
-
-  background-color: #fbfbfb;
 `;
