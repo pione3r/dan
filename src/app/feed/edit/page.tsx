@@ -6,8 +6,11 @@ import { styled } from "styled-components";
 
 import { Editor } from "@/components/Editor";
 import { EditorViewer } from "@/components/EditorViewer";
+import { useRouter } from "next/navigation";
 
 export default function PostEditPage() {
+  const router = useRouter();
+
   const [feedTitle, setFeedTitle] = useState("");
 
   const [html, setHtml] = useState("");
@@ -34,6 +37,7 @@ export default function PostEditPage() {
 
               if (res.status === 201) {
                 alert("피드 생성에 성공했습니다.");
+                router.push("/");
               }
 
               if (res.status === 401) {
@@ -55,6 +59,10 @@ export default function PostEditPage() {
 
 const Wrapper = styled.div`
   display: flex;
+
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+  }
 `;
 
 const ColumnLeft = styled.div`
