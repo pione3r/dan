@@ -1,7 +1,34 @@
-import { prisma } from "@/lib/prisma";
+import { NextResponse } from "next/server";
 
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/authOptions";
+
+import { prisma } from "@/lib/prisma";
+
+export async function GET() {
+  const feeds = await prisma.feed.findMany({
+    include: { author: { select: { username: true } } },
+  });
+
+  if (feeds.length) {
+    return new Response(
+      JSON.stringify({
+        feeds: feeds.map((feed) => ({
+          id: feed.id,
+          title: feed.title,
+          body: feed.body,
+          createdAt: feed.createdAt,
+          author: feed.author.username,
+        })),
+      }),
+      { status: 200 }
+    );
+  }
+
+  return new Response(JSON.stringify({ message: "중복 아이디 에러" }), {
+    status: 400,
+  });
+}
 
 export async function POST(request: Request) {
   const req = await request.json();

@@ -1,14 +1,10 @@
 import { Metadata } from "next";
 
-import { Inter } from "next/font/google";
-
 import "./globals.css";
 
 import StyledComponentsRegistry from "@/lib/styledComponentsRegistry";
 
 import { NextAuthProvider } from "./provider";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "D&N",
@@ -22,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <NextAuthProvider>
           <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
         </NextAuthProvider>
