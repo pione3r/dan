@@ -1,12 +1,20 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
+  background-color: #ffffff;
+
   border: 1px solid #d9d9d9;
   border-radius: 6px;
 
   padding: 20px;
 
   box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 16px 0px;
+
+  transition: transform 0.1s ease-in;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
 `;
 
 export const CardHeader = styled.div`
