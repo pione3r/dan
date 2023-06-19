@@ -1,6 +1,7 @@
+import Link from "next/link";
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled(Link)`
   background-color: #ffffff;
 
   border: 1px solid #d9d9d9;
@@ -14,6 +15,8 @@ export const Wrapper = styled.div`
 
   &:hover {
     transform: translateY(-4px);
+
+    cursor: pointer;
   }
 `;
 

@@ -13,9 +13,9 @@ import {
 import { usePreviousState } from "@/hooks/usePreviousState";
 
 import type ReactQuill from "react-quill";
-import type { RQ } from "../../atoms/WrappedReactQuill/index.types";
+import type { RQ } from "@/components/@common/atoms/WrappedReactQuill/index.types";
 
-import { WrappedReactQuill } from "../../atoms/WrappedReactQuill";
+import { WrappedReactQuill } from "@/components/@common/atoms/WrappedReactQuill";
 
 export function Editor({ value, onChange }: RQ) {
   const quillRef = useRef<ReactQuill>(null);

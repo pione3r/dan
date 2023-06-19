@@ -10,6 +10,11 @@
 
 .ql-container {
   border: none !important;
+}
+
+.editor .ql-container {
+  padding: 30px;
+  padding-top: 25px;
 
   height: calc(100vh - 205px) !important;
 
@@ -18,14 +23,23 @@
   }
 }
 
-.editor > .ql-container {
-  padding: 30px;
-  padding-top: 25px;
-}
-
-.viewer > .ql-container {
+.viewer .ql-container {
   padding: 45px;
   padding-bottom: 0px;
+
+  height: calc(100vh - 205px) !important;
+
+  @media (max-width: 720px) {
+    height: calc(100vh - 255px) !important;
+  }
+}
+
+.card-viewer .ql-container {
+  padding: 0px;
+}
+
+.card-viewer .ql-editor * {
+  cursor: pointer;
 }
 
 .ql-editor {

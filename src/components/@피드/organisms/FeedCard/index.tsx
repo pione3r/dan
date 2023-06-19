@@ -9,7 +9,7 @@ import { Viewer } from "../../blocks/Viewer";
 
 export function FeedCard({ feed }: FeedCardProps) {
   return (
-    <S.Wrapper>
+    <S.Wrapper href={`/feed/${feed.id}`}>
       <S.CardHeader>
         <S.CreatedAt>Posted by</S.CreatedAt>
         <S.Author>{feed.author}</S.Author>

@@ -1,6 +1,6 @@
-import { WrappedReactQuill } from "../../atoms/WrappedReactQuill";
+import { WrappedReactQuill } from "@/components/@common/atoms/WrappedReactQuill";
 
-import type { RQ } from "../../atoms/WrappedReactQuill/index.types";
+import type { RQ } from "@/components/@common/atoms/WrappedReactQuill/index.types";
 
 export function Viewer({ value }: RQ) {
   return (
