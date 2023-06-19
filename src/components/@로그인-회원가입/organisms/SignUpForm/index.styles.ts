@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import Link from "next/link";
 
-import { FormButton } from "../FormButton";
+import { FormButton } from "../../atoms/FormButton";
 
 export const Wrapper = styled.div`
   display: flex;

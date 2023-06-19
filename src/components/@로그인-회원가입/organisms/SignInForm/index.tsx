@@ -6,8 +6,8 @@ import { signIn } from "next-auth/react";
 
 import * as S from "./index.styles";
 
-import { FormInput } from "../FormInput";
-import { FormButton } from "../FormButton";
+import { FormInput } from "../../atoms/FormInput";
+import { FormButton } from "../../atoms/FormButton";
 
 export function SignInForm({ csrfToken }: { csrfToken: string | undefined }) {
   const [user, setUser] = useState({ username: "", password: "" });

@@ -1,4 +1,4 @@
-import { SignInForm } from "@/components/SignInForm";
+import { SignInForm } from "@/components/@로그인-회원가입/organisms/SignInForm";
 
 import { getCsrfToken } from "next-auth/react";
 

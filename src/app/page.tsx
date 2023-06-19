@@ -3,7 +3,7 @@ import type { Feed } from "@/types/general";
 import { baseUrl } from "@/common/url";
 
 import { FeedCard } from "@/components/@피드/organisms/FeedCard";
-import { Header } from "@/components/Header";
+import { Header } from "@/components/@common/blocks/Header";
 
 async function getFeeds() {
   const res = await fetch(`${baseUrl}/api/feed`, { cache: "no-store" });
@@ -20,10 +20,12 @@ export default async function HomePage() {
       <div
         style={{
           maxWidth: "600px",
-          margin: "100px auto",
+          margin: "0px auto",
+          padding: "100px 0px",
           display: "flex",
           flexDirection: "column",
           gap: "10px",
+          position: "relative"
         }}
       >
         {feeds.map((feed) => (

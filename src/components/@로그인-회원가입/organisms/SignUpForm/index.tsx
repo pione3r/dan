@@ -6,8 +6,8 @@ import { useState } from "react";
 
 import * as S from "./index.styles";
 
-import { FormInput } from "../FormInput";
-import { FormButton } from "../FormButton";
+import { FormInput } from "../../atoms/FormInput";
+import { FormButton } from "../../atoms/FormButton";
 
 export function SignUpForm() {
   const router = useRouter();
@@ -97,7 +97,8 @@ export function SignUpForm() {
         </FormButton>
       </S.FormWrapper>
       <S.FooterWrapper>
-        계정이 있으신가요?<S.LinkButton href="/accounts/signin">로그인</S.LinkButton>
+        계정이 있으신가요?
+        <S.LinkButton href="/accounts/signin">로그인</S.LinkButton>
       </S.FooterWrapper>
     </S.Wrapper>
   );
