@@ -8,6 +8,7 @@ import * as S from "./index.styles";
 
 import { FeedTitleInput } from "../../atoms/FeedTitleInput";
 import { SubmitButton } from "../../atoms/SubmitButton";
+import { ExitButton } from "../../atoms/ExitButton";
 
 import { Editor } from "../../blocks/Editor";
 import { Viewer } from "../../blocks/Viewer";
@@ -37,6 +38,7 @@ export function FeedEdit() {
         </S.ColumnRight>
       </S.Body>
       <S.Footer>
+        <ExitButton onClick={() => router.push("/")}>나가기</ExitButton>
         <SubmitButton
           onClick={async () => {
             const res = await fetch("/api/feed", {

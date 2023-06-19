@@ -11,10 +11,10 @@
 .ql-container {
   border: none !important;
 
-  height: calc(100dvh - 205px);
+  height: calc(100vh - 205px) !important;
 
   @media (max-width: 720px) {
-    height: calc(100dvh - 255px);
+    height: calc(100vh - 255px) !important;
   }
 }
 

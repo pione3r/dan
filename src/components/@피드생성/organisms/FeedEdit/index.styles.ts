@@ -15,6 +15,8 @@ export const Body = styled.div`
 
 export const ColumnLeft = styled.div`
   width: 100%;
+
+  background-color: #ffffff;
 `;
 
 export const ColumnRight = styled.div`
@@ -29,6 +31,7 @@ export const ColumnRight = styled.div`
 
 export const Footer = styled.div`
   display: flex;
+  justify-content: space-between;
 
   background-color: #fbfbfb;
 
