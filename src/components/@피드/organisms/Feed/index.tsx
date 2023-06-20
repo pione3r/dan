@@ -18,7 +18,9 @@ export function Feed({ feed }: FeedProps) {
           <S.CreatedAt>{`${elapsedTime(feed.createdAt)}`}</S.CreatedAt>
         </S.SubHeader>
       </S.Header>
-      <FeedViewer value={feed.body} />
+      <S.Body>
+        <FeedViewer value={feed.body} />
+      </S.Body>
     </S.Wrapper>
   );
 }
