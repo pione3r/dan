@@ -100,9 +100,27 @@ export const CommentAuthor = styled.div`
   font-weight: 500;
 `;
 
+export const CommentSubWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 export const CommentCreatedAt = styled.div`
   font-size: 13px;
   color: #495057;
+`;
+
+export const CommentDelete = styled.button`
+  border: none;
+  background: none;
+
+  font-size: 13px;
+  color: #495057;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
 `;
 
 export const CommentBody = styled.div`

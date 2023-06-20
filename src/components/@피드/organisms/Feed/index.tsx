@@ -62,9 +62,27 @@ export function Feed({ feed }: FeedProps) {
           <S.CommentWrapper key={comment.id}>
             <S.CommentHeader>
               <S.CommentAuthor>{comment.author}</S.CommentAuthor>
-              <S.CommentCreatedAt>{`${elapsedTime(
-                comment.createdAt
-              )}`}</S.CommentCreatedAt>
+              <S.CommentSubWrapper>
+                <S.CommentCreatedAt>{`${elapsedTime(
+                  comment.createdAt
+                )}`}</S.CommentCreatedAt>
+                <S.CommentDelete
+                  onClick={async () => {
+                    const res = await fetch(`/api/comment?id=${comment.id}`, {
+                      method: "delete",
+                    });
+
+                    if (res.status === 200) {
+                      router.refresh();
+                    } else {
+                      alert("댓글 삭제에 실패했습니다.");
+                      return;
+                    }
+                  }}
+                >
+                  삭제
+                </S.CommentDelete>
+              </S.CommentSubWrapper>
             </S.CommentHeader>
             <S.CommentBody>{comment.content}</S.CommentBody>
           </S.CommentWrapper>

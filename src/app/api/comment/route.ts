@@ -31,3 +31,22 @@ export async function POST(request: Request) {
     status: 401,
   });
 }
+
+export async function DELETE(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const id = searchParams.get("id") || "";
+
+  const comment = await prisma.comment.delete({
+    where: { id },
+  });
+
+  if (comment) {
+    return new Response(JSON.stringify({ message: "댓글 삭제 성공" }), {
+      status: 200,
+    });
+  }
+
+  return new Response(JSON.stringify({ message: "댓글 삭제 실패" }), {
+    status: 400,
+  });
+}
