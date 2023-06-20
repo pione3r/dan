@@ -43,6 +43,8 @@ export const Author = styled.div`
 
 export const CreatedAt = styled.div``;
 
+export const Spacer = styled.div``;
+
 export const CardBody = styled.div`
   height: 200px;
 `;
