@@ -49,3 +49,33 @@ export const Body = styled.div`
 
   padding-bottom: 20px;
 `;
+
+export const Footer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
+
+export const CommentCount = styled.div`
+  font-size: 18px;
+  font-weight: 600;
+  color: #212529;
+`;
+
+export const CommentInput = styled.textarea`
+  resize: none;
+  outline: none;
+
+  padding: 20px;
+
+  border: 1px solid #dfdfdf;
+  border-radius: 4px;
+
+  width: 100%;
+  min-height: 100px;
+
+  font-size: 14px;
+  line-height: 21px;
+
+  overflow: hidden;
+`;
