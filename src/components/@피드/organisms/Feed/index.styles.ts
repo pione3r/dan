@@ -79,3 +79,37 @@ export const CommentInput = styled.textarea`
 
   overflow: hidden;
 `;
+
+export const CommentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  border-bottom: 1px solid #e9ecef;
+  padding-bottom: 20px;
+`;
+
+export const CommentHeader = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+`;
+
+export const CommentAuthor = styled.div`
+  font-size: 18px;
+  font-weight: 500;
+`;
+
+export const CommentCreatedAt = styled.div`
+  font-size: 13px;
+  color: #495057;
+`;
+
+export const CommentBody = styled.div`
+  font-size: 18px;
+  color: #212529;
+  line-height: 27px;
+
+  word-break: keep-all;
+  overflow-wrap: break-word;
+`;

@@ -7,7 +7,17 @@ export async function GET(req: Request) {
 
   const feed = await prisma.feed.findUnique({
     where: { id },
-    include: { author: { select: { username: true } } },
+    include: {
+      author: { select: { username: true } },
+      comments: {
+        select: {
+          id: true,
+          content: true,
+          createdAt: true,
+          author: { select: { username: true } },
+        },
+      },
+    },
   });
 
   if (feed) {
@@ -18,6 +28,10 @@ export async function GET(req: Request) {
         body: feed.body,
         createdAt: feed.createdAt,
         author: feed.author.username,
+        comments: feed.comments.map((comment) => ({
+          ...comment,
+          author: comment.author.username,
+        })),
       }),
       { status: 200 }
     );
