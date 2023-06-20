@@ -91,6 +91,11 @@ export const CommentWrapper = styled.div`
 
 export const CommentHeader = styled.div`
   display: flex;
+  justify-content: space-between;
+`;
+
+export const CommentSubWrapper = styled.div`
+  display: flex;
   flex-direction: column;
   gap: 2px;
 `;
@@ -100,14 +105,27 @@ export const CommentAuthor = styled.div`
   font-weight: 500;
 `;
 
-export const CommentSubWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-
 export const CommentCreatedAt = styled.div`
   font-size: 13px;
   color: #495057;
+`;
+
+export const CommentModifyWrapper = styled.div`
+  display: flex;
+  gap: 6px;
+`;
+
+export const CommentEdit = styled.button`
+  border: none;
+  background: none;
+
+  font-size: 13px;
+  color: #495057;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
 `;
 
 export const CommentDelete = styled.button`

@@ -50,3 +50,26 @@ export async function DELETE(request: Request) {
     status: 400,
   });
 }
+
+export async function PATCH(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const id = searchParams.get("id") || "";
+
+  const req = await request.json();
+  const { content } = await req;
+
+  const comment = await prisma.comment.update({
+    where: { id },
+    data: { content },
+  });
+
+  if (comment) {
+    return new Response(JSON.stringify({ message: "댓글 수정 성공" }), {
+      status: 201,
+    });
+  }
+
+  return new Response(JSON.stringify({ message: "댓글 수정 실패" }), {
+    status: 401,
+  });
+}
