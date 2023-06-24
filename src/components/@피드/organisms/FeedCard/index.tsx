@@ -20,7 +20,7 @@ export function FeedCard({ feed }: FeedCardProps) {
       <S.CardBody>
         <S.MaskedCardBody>
           <S.Content>
-            <CardViewer value={feed.body} />
+            <CardViewer value={feed.content} />
           </S.Content>
         </S.MaskedCardBody>
       </S.CardBody>

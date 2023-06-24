@@ -14,7 +14,7 @@ export async function GET() {
         feeds: feeds.map((feed) => ({
           id: feed.id,
           title: feed.title,
-          body: feed.body,
+          content: feed.content,
           createdAt: feed.createdAt,
           author: feed.author.username,
         })),
@@ -41,7 +41,7 @@ export async function POST(request: Request) {
   const feed = await prisma.feed.create({
     data: {
       title: newFeed.title,
-      body: newFeed.body,
+      content: newFeed.content,
       authorId: user?.id!,
     },
   });

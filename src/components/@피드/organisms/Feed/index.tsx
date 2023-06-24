@@ -21,7 +21,7 @@ export function Feed({ feed }: FeedProps) {
         </S.SubHeader>
       </S.Header>
       <S.Body>
-        <FeedViewer value={feed.body} />
+        <FeedViewer value={feed.content} />
       </S.Body>
       <S.Footer>
         <CommentContainer feedId={feed.id} comments={feed.comments} />

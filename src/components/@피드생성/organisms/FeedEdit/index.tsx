@@ -45,7 +45,7 @@ export function FeedEdit() {
               method: "post",
               body: JSON.stringify({
                 title: feedTitle,
-                body: html,
+                content: html,
               }),
             });
 

@@ -1,7 +1,7 @@
 export type Feed = {
   id: string;
   title: string;
-  body: string;
+  content: string;
   createdAt: Date;
   author: string;
   comments: Comment[];
