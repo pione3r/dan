@@ -25,7 +25,7 @@ export async function GET(req: Request) {
       JSON.stringify({
         id: feed.id,
         title: feed.title,
-        body: feed.body,
+        content: feed.content,
         createdAt: feed.createdAt,
         author: feed.author.username,
         comments: feed.comments.map((comment) => ({
