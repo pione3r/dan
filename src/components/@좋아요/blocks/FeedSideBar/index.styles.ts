@@ -4,6 +4,10 @@ export const Wrapper = styled.div`
   position: absolute;
   top: 100px;
   left: -120px;
+
+  @media screen and (max-width: 960px) {
+    display: none;
+  }
 `;
 
 export const SubWrapper = styled.div`
@@ -20,16 +24,3 @@ export const SubWrapper = styled.div`
   align-items: center;
 `;
 
-export const LikeButton = styled.button`
-  background: none;
-  border: none;
-
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
-export const Count = styled.div`
-  font-size: 12px;
-  padding-right: 1px;
-`;

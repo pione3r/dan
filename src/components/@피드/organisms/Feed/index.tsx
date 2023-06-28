@@ -6,6 +6,7 @@ import type { FeedProps } from "./index.types";
 import { elapsedTime } from "@/utils/elapsedTime";
 
 import { FeedViewer } from "../../blocks/FeedViewer";
+import { LikeButton } from "../../atoms/LikeButton";
 
 export function Feed({ feed }: FeedProps) {
   return (
@@ -16,6 +17,7 @@ export function Feed({ feed }: FeedProps) {
           <S.Author>{feed.author}</S.Author>
           <S.Spacer>·</S.Spacer>
           <S.CreatedAt>{`${elapsedTime(feed.createdAt)}`}</S.CreatedAt>
+          <LikeButton feed={feed} />
         </S.SubHeader>
       </S.Header>
       <S.Body>
