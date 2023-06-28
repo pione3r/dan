@@ -5,8 +5,6 @@ export async function GET(req: Request) {
   const id = pathname.replace(`/api/feed/`, "");
   const username = searchParams.get("username") || "";
 
-  console.log(id);
-
   const feed = await prisma.feed.findUnique({
     where: { id },
     include: {
@@ -45,6 +43,25 @@ export async function GET(req: Request) {
   }
 
   return new Response(JSON.stringify({ message: "중복 아이디 에러" }), {
+    status: 400,
+  });
+}
+
+export async function DELETE(req: Request) {
+  const { pathname } = new URL(req.url);
+  const id = pathname.replace(`/api/feed/`, "");
+
+  const deleteFeed = await prisma.feed.delete({
+    where: { id },
+  });
+
+  if (deleteFeed) {
+    return new Response(JSON.stringify({ message: "피드 삭제 성공" }), {
+      status: 200,
+    });
+  }
+
+  return new Response(JSON.stringify({ message: "피드 삭제 실패" }), {
     status: 400,
   });
 }
