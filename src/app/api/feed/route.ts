@@ -5,7 +5,7 @@ import { prisma } from "@/lib/prisma";
 
 export async function GET() {
   const feeds = await prisma.feed.findMany({
-    include: { author: { select: { username: true } } },
+    include: { author: { select: { username: true } }, likedBy: true },
   });
 
   if (feeds.length) {
@@ -17,6 +17,7 @@ export async function GET() {
           content: feed.content,
           createdAt: feed.createdAt,
           author: feed.author.username,
+          likes: feed.likedBy.length,
         })),
       }),
       { status: 200 }

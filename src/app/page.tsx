@@ -20,8 +20,8 @@ export default async function HomePage() {
       <div
         style={{
           maxWidth: "600px",
-          margin: "0px auto",
-          padding: "100px 0px",
+          margin: "30px auto",
+          padding: "30px 20px",
           display: "flex",
           flexDirection: "column",
           gap: "10px",

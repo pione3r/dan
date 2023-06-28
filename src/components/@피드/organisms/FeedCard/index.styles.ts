@@ -30,6 +30,7 @@ export const CardHeader = styled.div`
   color: #787c7e;
 
   display: flex;
+  align-items: center;
   gap: 4px;
 `;
 
@@ -37,8 +38,6 @@ export const Author = styled.div`
   font-size: 14px;
   font-weight: 500;
   color: #000000;
-
-  /* text-align: center; */
 `;
 
 export const CreatedAt = styled.div``;
@@ -47,6 +46,10 @@ export const Spacer = styled.div``;
 
 export const CardBody = styled.div`
   height: 200px;
+
+  @media screen and (max-width: 720px) {
+    height: 100px;
+  }
 `;
 
 export const Title = styled.div`
@@ -65,3 +68,15 @@ export const MaskedCardBody = styled.div`
 `;
 
 export const Content = styled.div``;
+
+export const LikesWrapper = styled.div`
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+  align-items: center;
+  gap: 2px;
+
+  margin-left: auto;
+  margin-right: 10px;
+`;
