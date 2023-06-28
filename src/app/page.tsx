@@ -28,7 +28,7 @@ export default async function HomePage() {
           position: "relative",
         }}
       >
-        {feeds.map((feed) => (
+        {feeds.reverse().map((feed) => (
           <FeedCard key={feed.id} feed={feed} />
         ))}
       </div>
