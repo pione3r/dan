@@ -45,3 +45,8 @@
 .ql-editor {
   padding: 0px;
 }
+
+
+.ql-editor.ql-blank::before {
+  padding-left: 16px !important;
+}

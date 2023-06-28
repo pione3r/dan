@@ -17,6 +17,9 @@ import type { RQ } from "@/components/@common/atoms/WrappedReactQuill/index.type
 
 import { WrappedReactQuill } from "@/components/@common/atoms/WrappedReactQuill";
 
+import hljs from "highlight.js";
+import "highlight.js/styles/monokai-sublime.css";
+
 export function Editor({ value, onChange }: RQ) {
   const quillRef = useRef<ReactQuill>(null);
 
@@ -40,6 +43,10 @@ export function Editor({ value, onChange }: RQ) {
       deleteObject(storageRef);
     }
   }, [value, previousHtml]);
+
+  useEffect(() => {
+    quillRef.current?.editor?.root.setAttribute("spellcheck", "false");
+  }, []);
 
   const imageHandler = useMemo(
     () => () => {
@@ -78,16 +85,16 @@ export function Editor({ value, onChange }: RQ) {
     () => ({
       toolbar: {
         container: [
-          [{ header: "1" }, { header: "2" }],
-          [{ size: [] }],
-          ["bold", "italic", "underline", "strike", "blockquote"],
-          [
-            { list: "ordered" },
-            { list: "bullet" },
-            { indent: "-1" },
-            { indent: "+1" },
-          ],
+          [{ font: [] }],
+          [{ header: [1, 2, 3, 4, 5, 6, false] }],
+          ["bold", "italic", "underline", "strike"],
+          [{ color: [] }, { background: [] }],
+          [{ script: "sub" }, { script: "super" }],
+          ["blockquote", "code-block", "link"],
+          [{ list: "ordered" }, { list: "bullet" }],
+          [{ indent: "-1" }, { indent: "+1" }, { align: [] }],
           ["link", "image", "video"],
+          ["clean"],
         ],
         handlers: { image: imageHandler },
       },
@@ -100,22 +107,30 @@ export function Editor({ value, onChange }: RQ) {
         // toggle to add extra line breaks when pasting HTML:
         matchVisual: false,
       },
+      syntax: {
+        highlight: (text: any) => hljs.highlightAuto(text).value,
+      },
     }),
     [imageHandler]
   );
 
   const formats = useMemo(
     () => [
-      "header",
       "font",
-      "size",
+      "header",
       "bold",
       "italic",
       "underline",
       "strike",
+      "color",
+      "background",
+      "script",
       "blockquote",
+      "code-block",
+      "link",
       "list",
       "bullet",
+      "align",
       "indent",
       "link",
       "image",
@@ -133,6 +148,7 @@ export function Editor({ value, onChange }: RQ) {
       formats={formats}
       value={value}
       onChange={onChange}
+      placeholder="내용을 입력해주세요..."
     />
   );
 }

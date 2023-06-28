@@ -60,6 +60,8 @@ export const Title = styled.div`
 `;
 
 export const MaskedCardBody = styled.div`
+  overflow: hidden;
+
   height: 100%;
   max-height: 100%;
 
