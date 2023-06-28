@@ -1,6 +1,6 @@
-import { Metadata } from "next";
-
 import "./globals.css";
+
+import { Metadata } from "next";
 
 import StyledComponentsRegistry from "@/lib/styledComponentsRegistry";
 

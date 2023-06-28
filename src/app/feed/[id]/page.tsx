@@ -4,24 +4,35 @@ import { baseUrl } from "@/common/url";
 
 import { Header } from "@/components/@common/blocks/Header";
 import { Feed } from "@/components/@피드/organisms/Feed";
-import { CommentContainer as Comment } from "@/components/@댓글/organisms/CommentContainer";
+import { FeedSideBar as SideBar } from "@/components/@좋아요/blocks/FeedSideBar";
+import { CommentContainer } from "@/components/@댓글/organisms/CommentContainer";
+
+import type { Feed as FeedType } from "@/types/general";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/authOptions";
 
 async function getFeed(id: string) {
-  const res = await fetch(`${baseUrl}/api/feed/${id}`, { cache: "no-cache" });
+  const session = await getServerSession(authOptions);
+
+  const res = await fetch(
+    `${baseUrl}/api/feed/${id}?username=${session?.user.username}`,
+    { cache: "no-cache" }
+  );
   const feed = await res.json();
 
   return feed;
 }
 
 export default async function FeedPage({ params }: { params: { id: string } }) {
-  const feed = await getFeed(params.id);
+  const feed: FeedType = await getFeed(params.id);
 
   return (
     <>
       <Header />
-      <div className={styles.body}>
+      <div className={styles.SubWrapper}>
+        <SideBar feed={feed} />
         <Feed feed={feed} />
-        <Comment feedId={feed.id} comments={feed.comments} />
+        <CommentContainer feedId={feed.id} comments={feed.comments} />
       </div>
     </>
   );

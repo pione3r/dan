@@ -25,7 +25,7 @@ export default async function HomePage() {
           display: "flex",
           flexDirection: "column",
           gap: "10px",
-          position: "relative"
+          position: "relative",
         }}
       >
         {feeds.map((feed) => (

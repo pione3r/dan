@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
 
   user-select: none;
 
-  position: fixed;
+  position: sticky;
   top: 0px;
   left: 0px;
 

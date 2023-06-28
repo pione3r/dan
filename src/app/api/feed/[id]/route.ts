@@ -1,9 +1,11 @@
-import { baseUrl } from "@/common/url";
-
 import { prisma } from "@/lib/prisma";
 
 export async function GET(req: Request) {
-  const id = req.url.replace(`${baseUrl}/api/feed/`, "");
+  const { pathname, searchParams } = new URL(req.url);
+  const id = pathname.replace(`/api/feed/`, "");
+  const username = searchParams.get("username") || "";
+
+  console.log(id);
 
   const feed = await prisma.feed.findUnique({
     where: { id },
@@ -17,6 +19,7 @@ export async function GET(req: Request) {
           author: { select: { username: true } },
         },
       },
+      likedBy: true,
     },
   });
 
@@ -32,6 +35,10 @@ export async function GET(req: Request) {
           ...comment,
           author: comment.author.username,
         })),
+        likes: feed.likedBy.length,
+        isLike: feed.likedBy.find((user) => user.username === username)
+          ? true
+          : false,
       }),
       { status: 200 }
     );

@@ -5,6 +5,8 @@ export type Feed = {
   createdAt: Date;
   author: string;
   comments: Comment[];
+  likes: number;
+  isLike: boolean;
 };
 
 export type Comment = {
