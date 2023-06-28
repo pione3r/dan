@@ -7,8 +7,10 @@ import { elapsedTime } from "@/utils/elapsedTime";
 
 import { FeedViewer } from "../../blocks/FeedViewer";
 import { LikeButton } from "../../atoms/LikeButton";
+import { useSession } from "next-auth/react";
 
 export function Feed({ feed }: FeedProps) {
+  const session = useSession();
   return (
     <S.Wrapper>
       <S.Header>
@@ -17,7 +19,12 @@ export function Feed({ feed }: FeedProps) {
           <S.Author>{feed.author}</S.Author>
           <S.Spacer>·</S.Spacer>
           <S.CreatedAt>{`${elapsedTime(feed.createdAt)}`}</S.CreatedAt>
-          <LikeButton feed={feed} />
+          <S.ButtonWrapper>
+            {session.data?.user.username === feed.author && (
+              <S.DeleteButton>삭제</S.DeleteButton>
+            )}
+            <LikeButton feed={feed} />
+          </S.ButtonWrapper>
         </S.SubHeader>
       </S.Header>
       <S.Body>

@@ -14,9 +14,6 @@ export const Wrapper = styled.button`
     display: flex;
     align-items: center;
     gap: 4px;
-
-    margin-left: auto;
-    margin-right: 10px;
   }
 `;
 
@@ -29,8 +26,8 @@ export const ImageWrapper = styled.div`
   justify-content: center;
 
   @media screen and (max-width: 960px) {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
   }
 `;
 

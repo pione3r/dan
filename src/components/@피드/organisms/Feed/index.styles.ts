@@ -4,6 +4,10 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
+
+  @media screen and (max-width: 720px) {
+    gap: 20px;
+  }
 `;
 
 export const Header = styled.div`
@@ -26,19 +30,40 @@ export const SubHeader = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+`;
 
-  font-size: 16px;
+export const Author = styled.div`
+  font-size: 18px;
   font-weight: 500;
 `;
 
-export const Author = styled.div``;
+export const Spacer = styled.div``;
 
 export const CreatedAt = styled.div`
   font-size: 14px;
   color: #495057;
 `;
 
-export const Spacer = styled.div``;
+export const ButtonWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-left: auto;
+`;
+
+export const DeleteButton = styled.button`
+  border: none;
+  background: none;
+
+  font-size: 13px;
+  color: #495057;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+`;
 
 export const Body = styled.div`
   border-top: 1px solid #e9ecef;
