@@ -2,9 +2,8 @@ import "./globals.css";
 
 import { Metadata } from "next";
 
-import StyledComponentsRegistry from "@/lib/styledComponentsRegistry";
-
-import { NextAuthProvider } from "./provider";
+import { Provider } from "@/lib/Provider";
+import StyledComponentsRegistry from "@/lib/StyledComponentsRegistry";
 
 export const metadata: Metadata = {
   title: "D&N",
@@ -19,9 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <NextAuthProvider>
+        <Provider>
           <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
-        </NextAuthProvider>
+        </Provider>
       </body>
     </html>
   );
