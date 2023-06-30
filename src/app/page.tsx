@@ -5,6 +5,8 @@ import { baseUrl } from "@/common/url";
 import { FeedCard } from "@/components/@피드/organisms/FeedCard";
 import { Header } from "@/components/@common/blocks/Header";
 
+import styles from "./page.module.css";
+
 async function getFeeds() {
   const res = await fetch(`${baseUrl}/api/feed`, { cache: "no-store" });
 
@@ -17,17 +19,7 @@ export default async function HomePage() {
   return (
     <>
       <Header />
-      <div
-        style={{
-          maxWidth: "600px",
-          margin: "30px auto",
-          padding: "30px 20px",
-          display: "flex",
-          flexDirection: "column",
-          gap: "10px",
-          position: "relative",
-        }}
-      >
+      <div className={styles.body}>
         {feeds.reverse().map((feed) => (
           <FeedCard key={feed.id} feed={feed} />
         ))}

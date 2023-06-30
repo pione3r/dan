@@ -1,0 +1,11 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  position: relative;
+  max-width: 600px;
+
+  margin: 0px auto;
+  padding: 30px 20px;
+}
