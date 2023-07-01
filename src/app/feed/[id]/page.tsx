@@ -26,12 +26,12 @@ export default async function FeedPage({ params }: { params: { id: string } }) {
   const feed: FeedType = await getFeed(params.id);
 
   return (
-    <>
+    <div className={styles.wrapper}>
       <div className={styles.SubWrapper}>
         <SideBar feed={feed} />
         <Feed feed={feed} />
         <CommentContainer feedId={feed.id} comments={feed.comments} />
       </div>
-    </>
+    </div>
   );
 }

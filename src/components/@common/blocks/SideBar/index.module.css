@@ -1,4 +1,17 @@
-.sidebar {
+.wrapper {
+  height: auto;
+}
+
+.sub-sub-wrapper {
+  position: sticky;
+  top: 0px;
+
+  height: 100dvh;
+}
+
+.sub-wrapper {
+  height: 100%;
+
   display: flex;
   flex-direction: column;
   align-items: center;

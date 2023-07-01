@@ -1,3 +1,13 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+
+  padding: 40px 0px;
+}
+
 .SubWrapper {
   position: relative;
   max-width: 680px;
@@ -6,10 +16,9 @@
   flex-direction: column;
   gap: 40px;
 
-  margin: 100px auto;
+  background-color: #ffffff;
 
-  @media (max-width: 720px) {
-    margin: 30px auto;
-    padding: 0px 20px;
-  }
+  padding: 40px;
+
+  border-radius: 12px;
 }
