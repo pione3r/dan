@@ -5,9 +5,12 @@ import Link from "next/link";
 import { useState } from "react";
 
 import styles from "./index.module.css";
+import { usePathname } from "next/navigation";
 
 export function Sidebar() {
-  const [isActive, setIsActive] = useState("dashboard");
+  const pathname = usePathname();
+
+  const [isActive, setIsActive] = useState(pathname);
 
   return (
     <div className={styles.sidebar}>
@@ -15,12 +18,10 @@ export function Sidebar() {
       <nav className={styles["nav-wrapper"]}>
         <Link
           className={
-            isActive === "dashboard"
-              ? styles["nav-item-active"]
-              : styles["nav-item"]
+            isActive === "/" ? styles["nav-item-active"] : styles["nav-item"]
           }
           href="/"
-          onClick={() => setIsActive("dashboard")}
+          onClick={() => setIsActive("/")}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -37,12 +38,12 @@ export function Sidebar() {
         <div className={styles["nav-title"]}>PROFILE</div>
         <Link
           className={
-            isActive === "new-post"
+            isActive === "/feed/edit"
               ? styles["nav-item-active"]
               : styles["nav-item"]
           }
           href="/feed/edit"
-          onClick={() => setIsActive("new-post")}
+          onClick={() => setIsActive("/feed/edit")}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -52,16 +53,16 @@ export function Sidebar() {
           >
             <path d="M220-80q-24 0-42-18t-18-42v-680q0-24 18-42t42-18h340l240 240v156h-60v-116H520v-220H220v680h300v60H220Zm0-60v-680 680Zm536-223 28 28-164 164v51h51l164-164 28 28L687-80H580v-107l176-176Zm107 107L756-363l61-61q9-9 21-9t21 9l65 65q9 9 9 21t-9 21l-61 61Z" />
           </svg>
-          New Post
+          New Feed
         </Link>
         <Link
           className={
-            isActive === "my-posts"
+            isActive === "/feeds"
               ? styles["nav-item-active"]
               : styles["nav-item"]
           }
           href="/"
-          onClick={() => setIsActive("my-posts")}
+          onClick={() => setIsActive("/feeds")}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -75,12 +76,12 @@ export function Sidebar() {
         </Link>
         <Link
           className={
-            isActive === "settings"
+            isActive === "/settings"
               ? styles["nav-item-active"]
               : styles["nav-item"]
           }
           href="/"
-          onClick={() => setIsActive("settings")}
+          onClick={() => setIsActive("/settings")}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
