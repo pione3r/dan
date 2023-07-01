@@ -53,3 +53,9 @@ export const Button = styled.button`
     cursor: pointer;
   }
 `;
+
+export const SubWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+`;
