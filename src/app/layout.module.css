@@ -1,4 +1,19 @@
 .wrapper {
   display: flex;
   min-height: 100dvh;
+
+  background-color: #e5e4e469;
+}
+
+.body-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+
+  padding: 20px 100px;
+
+  width: 100%;
+}
+
+.body-content-wrapper {
 }

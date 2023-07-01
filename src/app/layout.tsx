@@ -7,6 +7,7 @@ import { Provider } from "@/lib/Provider";
 import StyledComponentsRegistry from "@/lib/StyledComponentsRegistry";
 
 import { Sidebar } from "@/components/@common/blocks/Sidebar";
+import { Header } from "@/components/@common/blocks/Header";
 
 export const metadata: Metadata = {
   title: "D&N",
@@ -25,6 +26,10 @@ export default function RootLayout({
           <body>
             <section className={styles.wrapper}>
               <Sidebar />
+              <div className={styles["body-wrapper"]}>
+                <Header />
+                <div className={styles["body-content-wrapper"]}>{children}</div>
+              </div>
             </section>
           </body>
         </html>

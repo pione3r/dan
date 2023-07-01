@@ -2,7 +2,6 @@ import styles from "./page.module.css";
 
 import { baseUrl } from "@/common/url";
 
-import { Header } from "@/components/@common/blocks/Header";
 import { Feed } from "@/components/@피드/organisms/Feed";
 import { FeedSideBar as SideBar } from "@/components/@좋아요/blocks/FeedSideBar";
 import { CommentContainer } from "@/components/@댓글/organisms/CommentContainer";
@@ -28,7 +27,6 @@ export default async function FeedPage({ params }: { params: { id: string } }) {
 
   return (
     <>
-      <Header />
       <div className={styles.SubWrapper}>
         <SideBar feed={feed} />
         <Feed feed={feed} />
