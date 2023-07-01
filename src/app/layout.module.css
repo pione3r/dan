@@ -8,12 +8,10 @@
 .body-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 60px;
-
-  padding: 20px 100px;
 
   width: 100%;
 }
 
 .body-content-wrapper {
+  height: 100%;
 }

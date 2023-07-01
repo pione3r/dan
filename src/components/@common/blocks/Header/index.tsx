@@ -1,6 +1,14 @@
+"use client";
+
 import styles from "./index.module.css";
 
+import { usePathname } from "next/navigation";
+
 export function Header() {
+  const pathname = usePathname();
+
+  if (pathname === "/feed/edit") return null;
+
   return (
     <header className={styles["header"]}>
       <div className={styles["searchbar-wrapper"]}>

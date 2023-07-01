@@ -6,11 +6,7 @@ export const Wrapper = styled.input`
 
   font-size: 40px;
 
-  padding: 20px;
+  padding: 16px 20px;
 
   width: 100%;
-
-  @media screen and (max-width: 720px) {
-    font-size: 30px;
-  }
 `;

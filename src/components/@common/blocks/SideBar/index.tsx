@@ -41,7 +41,7 @@ export function Sidebar() {
               ? styles["nav-item-active"]
               : styles["nav-item"]
           }
-          href="/"
+          href="/feed/edit"
           onClick={() => setIsActive("new-post")}
         >
           <svg
