@@ -1,16 +1,14 @@
 .wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   height: 100%;
 
-  padding: 40px 0px;
+  padding: 30px;
+
+  display: flex;
 }
 
 .SubWrapper {
   position: relative;
-  max-width: 680px;
+  width: 720px;
 
   display: flex;
   flex-direction: column;
@@ -21,4 +19,8 @@
   padding: 40px;
 
   border-radius: 12px;
+
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+  }
 }

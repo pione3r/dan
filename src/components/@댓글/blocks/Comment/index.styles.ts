@@ -70,7 +70,6 @@ export const Body = styled.div`
   color: #212529;
   line-height: 27px;
 
-  word-break: keep-all;
   overflow-wrap: break-word;
 `;
 

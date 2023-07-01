@@ -20,11 +20,19 @@
   height: calc(100dvh - 325px) !important;
 
   @media screen and (max-width: 1024px) {
-    height: calc(100dvh - 600px) !important;
+    height: calc(100dvh - 200px) !important;
   }
 
-  @media screen and (max-width: 720px) {
-    height: calc(100dvh - 465px) !important;
+  @media screen and (max-width: 941px) {
+    height: calc(100dvh - 230px) !important;
+  }
+
+  @media screen and (max-width: 498px) {
+    height: calc(100dvh - 250px) !important;
+  }
+
+  @media screen and (max-width: 379px) {
+    height: calc(100dvh - 270px) !important;
   }
 }
 
@@ -34,13 +42,7 @@
   height: calc(100dvh - 265px) !important;
 
   @media screen and (max-width: 1024px) {
-    height: 300px !important;
-  }
-
-  @media screen and (max-width: 720px) {
-    height: 165px !important;
-
-    padding: 16px;
+    display: none !important;
   }
 }
 

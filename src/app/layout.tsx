@@ -23,6 +23,12 @@ export default function RootLayout({
     <Provider>
       <StyledComponentsRegistry>
         <html>
+          <head>
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1"
+            />
+          </head>
           <body>
             <section className={styles.wrapper}>
               <Sidebar />

@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 
   padding: 20px;
 
-  @media screen and (max-width: 720px) {
+  @media screen and (max-width: 1024px) {
     padding: 0px;
 
     align-items: normal;

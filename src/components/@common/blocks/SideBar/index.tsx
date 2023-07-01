@@ -16,7 +16,13 @@ export function Sidebar() {
     <div className={styles["wrapper"]}>
       <div className={styles["sub-sub-wrapper"]}>
         <div className={styles["sub-wrapper"]}>
-          <div className={styles["sidebar-logo"]}>D&N</div>
+          <Link
+            className={styles["sidebar-logo"]}
+            href="/"
+            onClick={() => setIsActive("/")}
+          >
+            D&N
+          </Link>
           <nav className={styles["nav-wrapper"]}>
             <Link
               className={
