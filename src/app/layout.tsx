@@ -1,9 +1,12 @@
 import "./globals.css";
+import styles from "./layout.module.css";
 
 import { Metadata } from "next";
 
 import { Provider } from "@/lib/Provider";
 import StyledComponentsRegistry from "@/lib/StyledComponentsRegistry";
+
+import { Sidebar } from "@/components/@common/blocks/Sidebar";
 
 export const metadata: Metadata = {
   title: "D&N",
@@ -16,12 +19,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
-        <Provider>
-          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
-        </Provider>
-      </body>
-    </html>
+    <Provider>
+      <StyledComponentsRegistry>
+        <html>
+          <body>
+            <section className={styles.wrapper}>
+              <Sidebar />
+            </section>
+          </body>
+        </html>
+      </StyledComponentsRegistry>
+    </Provider>
   );
 }
