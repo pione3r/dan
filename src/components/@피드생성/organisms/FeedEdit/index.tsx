@@ -53,6 +53,7 @@ export function FeedEdit() {
               if (res.status === 201) {
                 alert("피드 생성에 성공했습니다.");
                 router.push("/");
+                router.refresh();
               }
 
               if (res.status === 401) {
