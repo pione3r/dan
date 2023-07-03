@@ -30,13 +30,13 @@ export default function RootLayout({
             />
           </head>
           <body>
-            <section className={styles.wrapper}>
+            <div className={styles.wrapper}>
               <Sidebar />
               <div className={styles["body-wrapper"]}>
                 <Header />
                 <div className={styles["body-content-wrapper"]}>{children}</div>
               </div>
-            </section>
+            </div>
           </body>
         </html>
       </StyledComponentsRegistry>
