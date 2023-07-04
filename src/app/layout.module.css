@@ -1,6 +1,9 @@
 .wrapper {
   display: flex;
   min-height: 100dvh;
+  max-width: 1280px;
+
+  margin: 0 auto;
 
   background-color: #e5e4e469;
 }
