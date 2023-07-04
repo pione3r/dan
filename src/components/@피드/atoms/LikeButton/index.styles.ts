@@ -10,7 +10,7 @@ export const Wrapper = styled.button`
     cursor: pointer;
   }
 
-  @media screen and (max-width: 960px) {
+  @media screen and (max-width: 1024px) {
     display: flex;
     align-items: center;
     gap: 4px;
@@ -25,7 +25,7 @@ export const ImageWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  @media screen and (max-width: 960px) {
+  @media screen and (max-width: 1024px) {
     width: 16px;
     height: 16px;
   }

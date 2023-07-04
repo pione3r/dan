@@ -5,7 +5,7 @@ export const Wrapper = styled(Link)`
   background-color: #ffffff;
 
   border: 1px solid #d9d9d9;
-  border-radius: 6px;
+  border-radius: 16px;
 
   padding: 20px;
 

@@ -8,7 +8,6 @@ import { elapsedTime } from "@/utils/elapsedTime";
 import { CardViewer } from "../../blocks/CardViewer";
 
 export function FeedCard({ feed }: FeedCardProps) {
-  console.log(feed.likes);
   return (
     <S.Wrapper href={`/feed/${feed.id}`}>
       <S.CardHeader>

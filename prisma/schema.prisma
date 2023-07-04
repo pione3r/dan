@@ -27,7 +27,7 @@ model Feed {
   content       String    @db.LongText
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
-  author        User      @relation(name: "author", fields: [authorId], references: [id])
+  author        User      @relation(name: "author", fields: [authorId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   authorId      String  
   comments      Comment[]
   likedBy       User[]    @relation("likes")
@@ -38,8 +38,8 @@ model Comment {
   content       String
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
-  feed          Feed      @relation(fields: [feedId], references: [id])
+  feed          Feed      @relation(fields: [feedId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   feedId        String
-  author        User      @relation(fields: [authorId], references: [id])
+  author        User      @relation(fields: [authorId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   authorId      String  
 }

@@ -6,6 +6,7 @@
 
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .ql-container {
@@ -16,21 +17,32 @@
   padding: 30px;
   padding-top: 25px;
 
-  height: calc(100vh - 205px) !important;
+  height: calc(100dvh - 325px) !important;
 
-  @media (max-width: 720px) {
-    height: calc(100vh - 255px) !important;
+  @media screen and (max-width: 1024px) {
+    height: calc(100dvh - 200px) !important;
+  }
+
+  @media screen and (max-width: 941px) {
+    height: calc(100dvh - 230px) !important;
+  }
+
+  @media screen and (max-width: 498px) {
+    height: calc(100dvh - 250px) !important;
+  }
+
+  @media screen and (max-width: 379px) {
+    height: calc(100dvh - 270px) !important;
   }
 }
 
 .viewer .ql-container {
-  padding: 45px;
-  padding-bottom: 0px;
+  padding: 30px;
 
-  height: calc(100vh - 205px) !important;
+  height: calc(100dvh - 265px) !important;
 
-  @media (max-width: 720px) {
-    height: calc(100vh - 255px) !important;
+  @media screen and (max-width: 1024px) {
+    display: none !important;
   }
 }
 
@@ -45,7 +57,6 @@
 .ql-editor {
   padding: 0px;
 }
-
 
 .ql-editor.ql-blank::before {
   padding-left: 16px !important;

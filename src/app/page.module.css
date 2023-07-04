@@ -1,11 +1,102 @@
-.body {
+.mainpage-wrapper {
+  display: flex;
+  gap: 20px;
+
+  max-width: 960px;
+
+  padding: 10px 20px;
+
+  @media screen and (max-width: 1200px) {
+    flex-direction: column-reverse;
+
+    max-height: calc(100dvh - 84px);
+  }
+}
+
+.cards-wrapper {
   display: flex;
   flex-direction: column;
   gap: 10px;
 
   position: relative;
-  max-width: 600px;
+  max-height: calc(100dvh - 124px);
 
-  margin: 0px auto;
-  padding: 30px 20px;
+  overflow-y: scroll;
+
+  padding-right: 20px;
+}
+
+.cards-wrapper::-webkit-scrollbar {
+  width: 8px; /* 스크롤바의 너비 */
+}
+
+.cards-wrapper::-webkit-scrollbar-thumb {
+  height: 30%; /* 스크롤바의 길이 */
+  background: #000000; /* 스크롤바의 색상 */
+
+  border-radius: 10px;
+}
+
+.cards-wrapper::-webkit-scrollbar-track {
+  background: transparent; /* 스크롤바 뒷 배경 색상 */
+
+  border-radius: 10px;
+}
+
+.cards-wrapper::-webkit-scrollbar-track-piece:end {
+  background-color: rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.cards-wrapper::-webkit-scrollbar-track-piece:start {
+  background-color: rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.rank-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  background-color: #ffffff;
+
+  height: fit-content;
+
+  padding: 20px;
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  @media screen and (max-width: 1200px) {
+    margin-right: 20px;
+  }
+}
+
+.rank-title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.user-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rank {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.feed-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  @media screen and (max-width: 720px) {
+    max-width: 100%;
+  }
 }

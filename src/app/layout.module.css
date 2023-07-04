@@ -1,0 +1,17 @@
+.wrapper {
+  display: flex;
+  min-height: 100dvh;
+
+  background-color: #e5e4e469;
+}
+
+.body-wrapper {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.body-content-wrapper {
+  height: 100%;
+}

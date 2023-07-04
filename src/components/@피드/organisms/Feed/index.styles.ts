@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   gap: 40px;
 
-  @media screen and (max-width: 720px) {
+  @media screen and (max-width: 1024px) {
     gap: 20px;
   }
 `;
@@ -21,7 +21,7 @@ export const Title = styled.div`
   font-weight: 700;
   word-break: keep-all;
 
-  @media screen and (max-width: 720px) {
+  @media screen and (max-width: 1024px) {
     font-size: 30px;
   }
 `;

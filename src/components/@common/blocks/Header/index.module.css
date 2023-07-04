@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  padding: 20px 30px;
+}
+
+.searchbar-wrapper {
+  display: flex;
+  gap: 8px;
+
+  background-color: #ffffff;
+
+  padding: 10px 20px;
+
+  border-radius: 20px;
+
+  width: 70%;
+  max-width: 720px;
+}
+
+.searchbar-input {
+  border: none;
+  outline: none;
+
+  width: 100%;
+}
+
+.profile-image-wrapper {
+  background-color: tomato;
+
+  padding: 4px;
+
+  border-radius: 50%;
+
+  height: fit-content;
+}
