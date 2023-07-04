@@ -77,3 +77,50 @@ export const Footer = styled.div`
     bottom: 0px;
   }
 `;
+
+export const ExitButton = styled.button`
+  border: none;
+
+  padding: 10px 20px;
+
+  font-size: 20px;
+  font-weight: 500;
+  color: #ffffff;
+
+  border-radius: 10px;
+
+  background-color: #000000;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+export const FeedTitleInput = styled.input`
+  border: none;
+  outline: none;
+
+  font-size: 40px;
+
+  padding: 16px 20px;
+
+  width: 100%;
+`;
+
+export const SubmitButton = styled.button`
+  border: none;
+
+  padding: 10px 20px;
+
+  font-size: 20px;
+  font-weight: 500;
+  color: #ffffff;
+
+  border-radius: 10px;
+
+  background-color: #000000;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;

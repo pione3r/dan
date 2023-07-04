@@ -6,12 +6,8 @@ import { useState } from "react";
 
 import * as S from "./index.styles";
 
-import { FeedTitleInput } from "../../atoms/FeedTitleInput";
-import { SubmitButton } from "../../atoms/SubmitButton";
-import { ExitButton } from "../../atoms/ExitButton";
-
-import { Editor } from "../../blocks/Editor";
-import { Viewer } from "../../blocks/Viewer";
+import { Editor } from "./Editor";
+import { WrappedReactQuill } from "@/components/@common/atoms/WrappedReactQuill";
 
 export function FeedEdit() {
   const router = useRouter();
@@ -24,7 +20,7 @@ export function FeedEdit() {
     <S.Wrapper>
       <S.SubWrapper>
         <S.Header>
-          <FeedTitleInput
+          <S.FeedTitleInput
             value={feedTitle}
             onChange={(e) => setFeedTitle(e.target.value)}
             placeholder="제목을 입력하세요"
@@ -35,12 +31,17 @@ export function FeedEdit() {
             <Editor value={html} onChange={setHtml} />
           </S.ColumnLeft>
           <S.ColumnRight>
-            <Viewer value={html} />
+            <WrappedReactQuill
+              className="viewer"
+              theme="bubble"
+              value={html}
+              readOnly
+            />
           </S.ColumnRight>
         </S.Body>
         <S.Footer>
-          <ExitButton onClick={() => router.push("/")}>나가기</ExitButton>
-          <SubmitButton
+          <S.ExitButton onClick={() => router.push("/")}>나가기</S.ExitButton>
+          <S.SubmitButton
             onClick={async () => {
               const res = await fetch("/api/feed", {
                 method: "post",
@@ -63,7 +64,7 @@ export function FeedEdit() {
             }}
           >
             작성완료
-          </SubmitButton>
+          </S.SubmitButton>
         </S.Footer>
       </S.SubWrapper>
     </S.Wrapper>
