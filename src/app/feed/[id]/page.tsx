@@ -3,7 +3,7 @@ import styles from "./page.module.css";
 import { baseUrl } from "@/common/url";
 
 import { Feed } from "@/components/Feed";
-import { FeedSideBar as SideBar } from "@/components/@좋아요/blocks/FeedSideBar";
+import { FeedSideBar as SideBar } from "@/components/Feed/FeedSideBar";
 import { CommentContainer } from "@/components/CommentContainer";
 
 import type { Feed as FeedType } from "@/types/general";
