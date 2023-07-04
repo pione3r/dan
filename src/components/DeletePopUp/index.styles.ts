@@ -40,3 +40,37 @@ export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: space-around;
 `;
+
+export const DeleteButton = styled.button`
+  border: none;
+
+  padding: 10px 20px;
+
+  font-size: 20px;
+  font-weight: 500;
+  color: #ffffff;
+
+  border-radius: 10px;
+
+  background-color: #000000;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+export const CancelButton = styled.button`
+  border: none;
+
+  padding: 10px 20px;
+
+  font-size: 20px;
+  font-weight: 500;
+  color: #000000;
+
+  border-radius: 10px;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;

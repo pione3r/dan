@@ -4,7 +4,7 @@ import { baseUrl } from "@/common/url";
 
 import type { Feed } from "@/types/general";
 
-import { FeedCard } from "@/components/@피드/organisms/FeedCard";
+import { FeedCard } from "@/components/FeedCard";
 
 async function getFeeds() {
   const res = await fetch(`${baseUrl}/api/feed`, { cache: "no-store" });

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
 
-export const Wrapper = styled(Link)`
+export const Wrapper = styled(Link).attrs({ prefetch: false })`
   background-color: #ffffff;
 
   border: 1px solid #d9d9d9;

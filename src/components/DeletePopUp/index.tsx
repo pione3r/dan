@@ -1,7 +1,5 @@
 import * as S from "./index.styles";
 
-import { CancelButton } from "../../atoms/CancelButton";
-import { FeedDeleteButton } from "../../atoms/FeedDeleteButton";
 import { useRouter } from "next/navigation";
 
 export function DeletePopUp({
@@ -18,8 +16,8 @@ export function DeletePopUp({
       <S.SubWrapper onClick={(e) => e.stopPropagation()}>
         <S.Notice>정말로 삭제하시겠습니까?</S.Notice>
         <S.ButtonWrapper>
-          <CancelButton onClick={취소}>취소</CancelButton>
-          <FeedDeleteButton
+          <S.CancelButton onClick={취소}>취소</S.CancelButton>
+          <S.DeleteButton
             onClick={async () => {
               const res = await fetch(`/api/feed/${feedId}`, {
                 method: "delete",
@@ -36,7 +34,7 @@ export function DeletePopUp({
             }}
           >
             삭제하기
-          </FeedDeleteButton>
+          </S.DeleteButton>
         </S.ButtonWrapper>
       </S.SubWrapper>
     </S.Wrapper>

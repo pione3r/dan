@@ -5,7 +5,7 @@ import type { FeedCardProps } from "./index.types";
 
 import { elapsedTime } from "@/utils/elapsedTime";
 
-import { CardViewer } from "../../blocks/CardViewer";
+import { WrappedReactQuill } from "@/components/@common/atoms/WrappedReactQuill";
 
 export function FeedCard({ feed }: FeedCardProps) {
   return (
@@ -32,7 +32,12 @@ export function FeedCard({ feed }: FeedCardProps) {
       <S.CardBody>
         <S.MaskedCardBody>
           <S.Content>
-            <CardViewer value={feed.content} />
+            <WrappedReactQuill
+              className="card-viewer"
+              theme="bubble"
+              value={feed.content}
+              readOnly
+            />
           </S.Content>
         </S.MaskedCardBody>
       </S.CardBody>
