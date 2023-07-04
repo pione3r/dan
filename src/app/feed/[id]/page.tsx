@@ -4,7 +4,7 @@ import { baseUrl } from "@/common/url";
 
 import { Feed } from "@/components/Feed";
 import { FeedSideBar as SideBar } from "@/components/@좋아요/blocks/FeedSideBar";
-import { CommentContainer } from "@/components/@댓글/organisms/CommentContainer";
+import { CommentContainer } from "@/components/CommentContainer";
 
 import type { Feed as FeedType } from "@/types/general";
 import { getServerSession } from "next-auth";

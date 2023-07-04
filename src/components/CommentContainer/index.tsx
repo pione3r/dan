@@ -7,7 +7,7 @@ import { useRef } from "react";
 import * as S from "./index.styles";
 import type { CommentContainerProps } from "./index.types";
 
-import { Comment } from "../../blocks/Comment";
+import { Comment } from "./Comment";
 
 export function CommentContainer({ feedId, comments }: CommentContainerProps) {
   const router = useRouter();
