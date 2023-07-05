@@ -13,7 +13,9 @@ async function getFeeds() {
 }
 
 export default async function DashboardPage() {
-  const { feeds }: { feeds: Feed[] } = await getFeeds();
+  const { feeds = [] }: { feeds: Feed[] } = await getFeeds();
+
+  if (!feeds.length) return <div>아직 피드가 없어요</div>;
 
   const feedsSortedByLikes = feeds.map((feed) => ({
     id: feed.id,

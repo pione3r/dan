@@ -44,6 +44,7 @@ export async function POST(request: Request) {
       title: newFeed.title,
       content: newFeed.content,
       authorId: user?.id!,
+      createdAt: new Date(),
     },
   });
 

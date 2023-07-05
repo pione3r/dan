@@ -18,6 +18,7 @@ export async function POST(request: Request) {
       content,
       feedId,
       authorId: user?.id!,
+      createdAt: new Date(),
     },
   });
 

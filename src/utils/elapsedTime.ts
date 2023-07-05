@@ -1,8 +1,6 @@
-const TIME_ZONE = 3240 * 10000;
-
 export function elapsedTime(date: Date) {
   const start = new Date(date);
-  const end = new Date(new Date().getTime() + TIME_ZONE);
+  const end = new Date(new Date().getTime());
 
   const diff = (+end - +start) / 1000;
 

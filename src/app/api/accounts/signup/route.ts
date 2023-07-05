@@ -26,7 +26,7 @@ export async function POST(request: Request) {
     });
   } else {
     await prisma.user.create({
-      data: newUser,
+      data: { ...newUser, createdAt: new Date() },
     });
 
     return new Response(
