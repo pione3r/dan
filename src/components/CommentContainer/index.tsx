@@ -8,6 +8,7 @@ import * as S from "./index.styles";
 import type { CommentContainerProps } from "./index.types";
 
 import { Comment } from "./Comment";
+import { useCheckUser } from "@/hooks/useCheckUser";
 
 export function CommentContainer({ feedId, comments }: CommentContainerProps) {
   const router = useRouter();
@@ -37,16 +38,23 @@ export function CommentContainer({ feedId, comments }: CommentContainerProps) {
     }
   };
 
+  const isUser = useCheckUser();
+
   return (
     <S.Wrapper>
       <S.Count>{`${comments.length}개의 댓글`}</S.Count>
-      <S.Input
-        ref={inputRef}
-        placeholder="댓글을 작성하세요"
-        rows={1}
-        onChange={입력높이조절}
-      />
-      <S.Button onClick={댓글추가}>댓글 작성</S.Button>
+      {isUser && (
+        <>
+          <S.Input
+            ref={inputRef}
+            placeholder="댓글을 작성하세요"
+            rows={1}
+            onChange={입력높이조절}
+          />
+          <S.Button onClick={댓글추가}>댓글 작성</S.Button>
+        </>
+      )}
+
       {comments.map((comment) => (
         <Comment key={comment.id} comment={comment} />
       ))}

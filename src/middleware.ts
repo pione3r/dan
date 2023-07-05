@@ -16,6 +16,10 @@ export async function middleware(req: NextRequest) {
       return NextResponse.redirect(
         new URL("/dashboard", "http://localhost:3000")
       );
+  } else {
+    if (pathname === "/accounts/signin" || pathname === "/accounts/signup") {
+      return NextResponse.redirect(new URL("/", "http://localhost:3000"));
+    }
   }
 
   // if (jwt) {

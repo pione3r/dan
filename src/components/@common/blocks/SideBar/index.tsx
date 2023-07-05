@@ -7,14 +7,14 @@ import { useState } from "react";
 
 import styles from "./index.module.css";
 
-import { useSession } from "next-auth/react";
+import { useCheckUser } from "@/hooks/useCheckUser";
 
 export function Sidebar() {
   const pathname = usePathname();
 
   const [isActive, setIsActive] = useState(pathname);
 
-  const session = useSession();
+  const isUser = useCheckUser();
 
   return (
     <div className={styles["wrapper"]}>
@@ -48,7 +48,7 @@ export function Sidebar() {
               Dashboard
             </Link>
           </nav>
-          {session.data?.user && (
+          {isUser && (
             <nav className={styles["nav-wrapper"]}>
               <div className={styles["nav-title"]}>PROFILE</div>
               <Link
