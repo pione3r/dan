@@ -8,22 +8,32 @@ export async function middleware(req: NextRequest) {
 
   const { pathname } = req.nextUrl;
 
-  if (jwt) {
-    if (pathname === "/accounts/signin" || pathname === "/accounts/signup") {
-      return NextResponse.redirect(new URL("/", "http://localhost:3000"));
-    }
-    if (pathname === "/") {
-      return NextResponse.rewrite(
+  if (pathname === "/")
+    return NextResponse.rewrite(new URL("/dashboard", "http://localhost:3000"));
+
+  if (!jwt) {
+    if (pathname === "/feed/edit")
+      return NextResponse.redirect(
         new URL("/dashboard", "http://localhost:3000")
       );
-    }
-  } else {
-    if (pathname === "/") {
-      return NextResponse.rewrite(
-        new URL("/accounts/signin", "http://localhost:3000")
-      );
-    }
   }
+
+  // if (jwt) {
+  //   if (pathname === "/accounts/signin" || pathname === "/accounts/signup") {
+  //     return NextResponse.redirect(new URL("/", "http://localhost:3000"));
+  //   }
+  //   if (pathname === "/") {
+  //     return NextResponse.rewrite(
+  //       new URL("/dashboard", "http://localhost:3000")
+  //     );
+  //   }
+  // } else {
+  //   if (pathname !== "/accounts/signin" && pathname !== "/accounts/signup") {
+  //     return NextResponse.rewrite(
+  //       new URL("/accounts/signin", "http://localhost:3000")
+  //     );
+  //   }
+  // }
 }
 
 export const config = {
