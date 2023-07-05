@@ -12,6 +12,11 @@ export async function middleware(req: NextRequest) {
     if (pathname === "/accounts/signin" || pathname === "/accounts/signup") {
       return NextResponse.redirect(new URL("/", "http://localhost:3000"));
     }
+    if (pathname === "/") {
+      return NextResponse.rewrite(
+        new URL("/dashboard", "http://localhost:3000")
+      );
+    }
   } else {
     if (pathname === "/") {
       return NextResponse.rewrite(

@@ -26,12 +26,12 @@ export function Sidebar() {
           <nav className={styles["nav-wrapper"]}>
             <Link
               className={
-                isActive === "/"
+                isActive === "/dashboard" || isActive === "/"
                   ? styles["nav-item-active"]
                   : styles["nav-item"]
               }
               href="/"
-              onClick={() => setIsActive("/")}
+              onClick={() => setIsActive("/dashboard")}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
