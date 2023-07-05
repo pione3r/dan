@@ -40,6 +40,10 @@ export const Wrapper = styled.div`
     background-color: rgba(0, 0, 0, 0.1);
     margin-top: 20px;
   }
+
+  @media screen and (max-width: 720px) {
+    min-width: 0px;
+  }
 `;
 
 export const CardWrapper = styled(Link).attrs({ prefetch: false })`
