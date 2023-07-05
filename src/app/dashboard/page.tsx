@@ -4,7 +4,7 @@ import { baseUrl } from "@/common/url";
 
 import type { Feed } from "@/types/general";
 
-import { FeedCard } from "@/components/FeedCard";
+import { FeedCards } from "@/components/FeedCards";
 
 async function getFeeds() {
   const res = await fetch(`${baseUrl}/api/feed`, { cache: "no-store" });
@@ -12,7 +12,7 @@ async function getFeeds() {
   return res.json();
 }
 
-export default async function HomePage() {
+export default async function DashboardPage() {
   const { feeds }: { feeds: Feed[] } = await getFeeds();
 
   const feedsSortedByLikes = feeds.map((feed) => ({
@@ -23,11 +23,7 @@ export default async function HomePage() {
 
   return (
     <div className={styles["mainpage-wrapper"]}>
-      <div className={styles["cards-wrapper"]}>
-        {feeds.reverse().map((feed) => (
-          <FeedCard key={feed.id} feed={feed} />
-        ))}
-      </div>
+      <FeedCards feeds={feeds} />
       <div className={styles["rank-wrapper"]}>
         <div className={styles["rank-title"]}>Top Likes</div>
         {feedsSortedByLikes.map((feed, index) => (

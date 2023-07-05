@@ -1,7 +1,48 @@
 import Link from "next/link";
 import styled from "styled-components";
 
-export const Wrapper = styled(Link).attrs({ prefetch: false })`
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  position: relative;
+  min-width: 620px;
+  max-height: calc(100dvh - 124px);
+
+  overflow-y: scroll;
+
+  padding-right: 20px;
+
+  &::-webkit-scrollbar {
+    width: 8px; /* 스크롤바의 너비 */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    height: 30%; /* 스크롤바의 길이 */
+    background: #000000; /* 스크롤바의 색상 */
+
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent; /* 스크롤바 뒷 배경 색상 */
+
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track-piece:end {
+    background-color: rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+
+  &::-webkit-scrollbar-track-piece:start {
+    background-color: rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+`;
+
+export const CardWrapper = styled(Link).attrs({ prefetch: false })`
   background-color: #ffffff;
 
   border: 1px solid #d9d9d9;
